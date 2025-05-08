@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="Main" Id="{e92925b0-25e0-45c2-9a6a-fa5fe2e01ed8}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Main
+VAR
+	axis_ref : Axis_Ref;
+	power : Mc_Power;
+	reset : Mc_Reset;
+	stop : Mc_Stop;
+	move_velocity : Mc_MoveVelocity;
+	move_continuous_velocity : Mc_MoveContinuousVelocity;
+	enable : BOOL;
+	perform_reset : BOOL;
+	perform_stop : BOOL;
+	
+	perform_move_velocity : BOOL;
+	perform_move_continuous_velocity : BOOL;
+	move_velocity_speed : LREAL := 5.0;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[power(
+	Axis := axis_ref,
+	Enable := enable,
+	Enable_Positive := enable,
+	Enable_Negative := enable,
+	Override := 100.0,
+	BufferMode := Mc_BufferMode.Mc_Aborting
+);
+
+reset(
+	Axis := axis_ref,
+	Execute := perform_reset
+);
+
+IF NOT reset.Busy AND NOT reset.Error THEN
+	perform_reset := FALSE;
+END_IF
+
+stop(
+	Axis := axis_ref,
+	Execute := perform_stop
+);
+
+IF NOT stop.Done THEN
+	perform_stop := FALSE;
+END_IF
+
+move_velocity(
+	Axis := axis_ref,
+	Execute := perform_move_velocity,
+	Velocity := move_velocity_speed,
+	Direction := Mc_Direction.Mc_Positive_Direction
+);
+
+IF NOT move_velocity.Busy AND NOT move_velocity.Error THEN
+	perform_move_velocity := FALSE;
+END_IF
+
+move_continuous_velocity(
+	Axis := axis_ref,
+	Execute := perform_move_continuous_velocity,
+	Velocity := move_velocity_speed,
+	Direction := Mc_Direction.Mc_Positive_Direction
+);
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

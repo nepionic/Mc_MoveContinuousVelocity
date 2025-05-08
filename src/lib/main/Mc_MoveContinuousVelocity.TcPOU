@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.12">
+  <POU Name="Mc_MoveContinuousVelocity" Id="{65a5d013-8ede-43c7-b44c-c49e7f03b37b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK PUBLIC Mc_MoveContinuousVelocity
+VAR_IN_OUT
+	Axis : Axis_Ref;
+END_VAR
+VAR_INPUT
+	Execute : BOOL;
+	Velocity : LREAL;
+	Acceleration : LREAL;
+	Deceleration : LREAL;
+	Jerk : LREAL;
+	Direction : Mc_Direction;
+	BufferMode : Mc_BufferMode;
+END_VAR
+VAR_OUTPUT
+	InVelocity : BOOL;
+	Busy : BOOL;
+	Active : BOOL;
+	CommandAborted : BOOL;
+	Error : BOOL;
+	ErrorId : UDINT;
+END_VAR
+VAR
+	move1 : Mc_MoveVelocity;
+	move2 : Mc_MoveVelocity;
+	//cycle_toggle : BOOL;
+	last_velocity : LREAL;
+	velocity_changed : BOOL;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[velocity_changed := Velocity <> last_velocity;
+
+move1(
+	Axis := Axis,
+	Execute := Execute AND velocity_changed AND NOT move1.Busy,
+	Velocity := Velocity,
+	Acceleration := Acceleration,
+	Deceleration := Deceleration,
+	Jerk := Jerk,
+	Direction := Direction,
+	BufferMode := BufferMode
+);
+
+move2(
+	Axis := Axis,
+	Execute := Execute AND velocity_changed AND move1.Busy,
+	Velocity := Velocity,
+	Acceleration := Acceleration,
+	Deceleration := Deceleration,
+	Jerk := Jerk,
+	Direction := Direction,
+	BufferMode := BufferMode
+);
+
+// These may require additional logic, this is just a starting point
+InVelocity := move1.InVelocity OR move2.InVelocity;
+Busy := move1.Busy OR move2.Busy;
+Active := move1.Active OR move2.Active;
+CommandAborted := move1.CommandAborted OR move2.CommandAborted;
+Error := move1.Error OR move2.Error;
+ErrorId := SEL(move1.Error, SEL(move2.Error, 0, move2.ErrorId), move1.ErrorId);
+
+//cycle_toggle := NOT cycle_toggle;
+last_velocity := Velocity;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
