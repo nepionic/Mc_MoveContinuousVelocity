@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
-  <POU Name="Main" Id="{e92925b0-25e0-45c2-9a6a-fa5fe2e01ed8}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM Main
+  <POU Name="Test" Id="{e92925b0-25e0-45c2-9a6a-fa5fe2e01ed8}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Test
 VAR
 	axis_ref : Axis_Ref;
 	power : Mc_Power;

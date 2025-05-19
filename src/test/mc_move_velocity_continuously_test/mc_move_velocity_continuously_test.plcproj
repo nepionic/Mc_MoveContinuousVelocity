@@ -3,53 +3,65 @@
   <PropertyGroup>
     <FileVersion>1.0.0.0</FileVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{fd8b46d1-c9dd-4fb3-a188-f28bdec81d54}</ProjectGuid>
+    <ProjectGuid>{a5ce750f-5aa8-49d1-b905-2c0e070a6300}</ProjectGuid>
     <SubObjectsSortedByName>true</SubObjectsSortedByName>
     <DownloadApplicationInfo>true</DownloadApplicationInfo>
-    <WriteProductVersion>true</WriteProductVersion>
+    <WriteProductVersion>false</WriteProductVersion>
     <GenerateTpy>false</GenerateTpy>
-    <Name>main</Name>
-    <ProgramVersion>3.1.4026.15</ProgramVersion>
-    <Application>{7127405e-524e-4bc7-b41d-1ddd558f408c}</Application>
-    <TypeSystem>{b1ea04de-b7e0-404e-a08b-d075204bd0c7}</TypeSystem>
-    <Implicit_Task_Info>{b1c1a599-ad3a-4306-859e-7c5777976718}</Implicit_Task_Info>
-    <Implicit_KindOfTask>{579016c7-d9e0-4bb5-a99e-08a9c7eabb73}</Implicit_KindOfTask>
-    <Implicit_Jitter_Distribution>{70d8f837-6dd0-4af2-9f08-f43343d0c35e}</Implicit_Jitter_Distribution>
-    <LibraryReferences>{f80ffee1-13f5-4d77-8cff-60eb72fad6ba}</LibraryReferences>
-    <Company>nepionic</Company>
-    <Released>false</Released>
-    <AllowChecksForLibrary>false</AllowChecksForLibrary>
-    <POUsForPropertyAccessIncluded>false</POUsForPropertyAccessIncluded>
-    <GlobalVersionStructureIncluded>false</GlobalVersionStructureIncluded>
-    <Title>Mc_MoveContinuousVelocity</Title>
-    <ProjectVersion>0.1.0</ProjectVersion>
-    <Placeholder>nepionic</Placeholder>
-    <Author>nepionic</Author>
-    <VirtualLibrary>true</VirtualLibrary>
-    <ObjectRepresentation>xml</ObjectRepresentation>
-    <WriteBookmarksToFile>true</WriteBookmarksToFile>
+    <Name>mc_move_velocity_continuously_test</Name>
+    <ProgramVersion>3.1.4026.16</ProgramVersion>
+    <Application>{1945e964-1f5e-4904-8f0a-2746f9a449b8}</Application>
+    <TypeSystem>{3d84fbf0-be98-4c07-aa5d-38b2097e3b1c}</TypeSystem>
+    <Implicit_Task_Info>{f2e5ec9e-621c-4bc3-b12e-f08390384c39}</Implicit_Task_Info>
+    <Implicit_KindOfTask>{dbd3f11c-b07a-42c5-9e8e-6f1db9dd82ac}</Implicit_KindOfTask>
+    <Implicit_Jitter_Distribution>{e0b2db0e-9543-48ba-9c80-ac12e9062090}</Implicit_Jitter_Distribution>
+    <LibraryReferences>{f34ce2e5-8cba-4558-a51d-603d2a0955d9}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
-    <PlaceholderReference Include="Tc2_MC2">
-      <DefaultResolution>Tc2_MC2, * (Beckhoff Automation GmbH)</DefaultResolution>
-      <Namespace>Tc2_MC2</Namespace>
-    </PlaceholderReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Mc_MoveContinuousVelocity.TcPOU">
+    <Compile Include="Programs\Test.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="main.tmc">
+    <Folder Include="Tasks" />
+    <Folder Include="Programs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PlaceholderReference Include="nepionic_motion">
+      <DefaultResolution>[Nepionic_Motion], * (Nepionic)</DefaultResolution>
+      <Namespace>nepionic</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_MC2">
+      <DefaultResolution>Tc2_MC2, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_MC2</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_Standard">
+      <DefaultResolution>Tc2_Standard, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_Standard</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_System">
+      <DefaultResolution>Tc2_System, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_System</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc3_Module">
+      <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc3_Module</Namespace>
+      <SystemLibrary>true</SystemLibrary>
+    </PlaceholderReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mc_move_velocity_continuously_test.tmc">
       <SubType>Content</SubType>
     </None>
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>
       <XmlArchive>
-        <Data>
-          <o xml:space="preserve" t="OptionKey">
+  <Data>
+    <o xml:space="preserve" t="OptionKey">
       <v n="Name">"&lt;ProjectRoot&gt;"</v>
       <d n="SubKeys" t="Hashtable" ckt="String" cvt="OptionKey">
         <v>{192FAD59-8248-4824-A8DE-9177C94C195A}</v>
@@ -122,14 +134,14 @@
       </d>
       <d n="Values" t="Hashtable" />
     </o>
-        </Data>
-        <TypeList>
-          <Type n="Boolean">System.Boolean</Type>
-          <Type n="Hashtable">System.Collections.Hashtable</Type>
-          <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
-          <Type n="String">System.String</Type>
-        </TypeList>
-      </XmlArchive>
+  </Data>
+  <TypeList>
+    <Type n="Boolean">System.Boolean</Type>
+    <Type n="Hashtable">System.Collections.Hashtable</Type>
+    <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
+    <Type n="String">System.String</Type>
+  </TypeList>
+</XmlArchive>
     </PlcProjectOptions>
   </ProjectExtensions>
 </Project>
