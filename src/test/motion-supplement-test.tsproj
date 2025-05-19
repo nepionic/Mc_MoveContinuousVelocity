@@ -1606,9 +1606,9 @@ External Setpoint Generation:
 			</NC>
 		</Motion>
 		<Plc>
-			<Project GUID="{A5CE750F-5AA8-49D1-B905-2C0E070A6300}" Name="mc_move_velocity_continuously_test" PrjFilePath="mc_move_velocity_continuously_test\mc_move_velocity_continuously_test.plcproj" TmcFilePath="mc_move_velocity_continuously_test\mc_move_velocity_continuously_test.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+			<Project GUID="{A5CE750F-5AA8-49D1-B905-2C0E070A6300}" Name="motion_supplement_test" PrjFilePath="motion_supplement_test\motion_supplement_test.plcproj" TmcFilePath="motion_supplement_test\motion_supplement_test.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
 				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{63F1367B-50F3-A389-D1DA-488EB3B59CA0}" TmcPath="test\test.tmc">
-					<Name>mc_move_velocity_continuously_test Instance</Name>
+					<Name>motion_supplement_test Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="2" AreaNo="1">
 						<Name>PlcTask Outputs</Name>
@@ -1645,7 +1645,7 @@ External Setpoint Generation:
 	</Project>
 	<Mappings>
 		<MappingInfo Identifier="{05000010-2001-0850-1000-040300205008}" Id="#x02030010" Watchdog="14000000040000000400000004000000"/>
-		<OwnerA Name="TIPC^mc_move_velocity_continuously_test^mc_move_velocity_continuously_test Instance">
+		<OwnerA Name="TIPC^motion_supplement_test^motion_supplement_test Instance">
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Axis 1">
 				<Link VarA="PlcTask Inputs^Main.axis_ref.NcToPlc" VarB="Outputs^ToPlc"/>
 				<Link VarA="PlcTask Outputs^Main.axis_ref.PlcToNc" VarB="Inputs^FromPlc"/>

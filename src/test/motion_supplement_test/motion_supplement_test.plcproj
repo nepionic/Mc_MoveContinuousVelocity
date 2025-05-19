@@ -8,7 +8,7 @@
     <DownloadApplicationInfo>true</DownloadApplicationInfo>
     <WriteProductVersion>false</WriteProductVersion>
     <GenerateTpy>false</GenerateTpy>
-    <Name>mc_move_velocity_continuously_test</Name>
+    <Name>motion_supplement_test</Name>
     <ProgramVersion>3.1.4026.16</ProgramVersion>
     <Application>{1945e964-1f5e-4904-8f0a-2746f9a449b8}</Application>
     <TypeSystem>{3d84fbf0-be98-4c07-aa5d-38b2097e3b1c}</TypeSystem>
@@ -30,8 +30,8 @@
     <Folder Include="Programs" />
   </ItemGroup>
   <ItemGroup>
-    <PlaceholderReference Include="nepionic_motion">
-      <DefaultResolution>[Nepionic_Motion], * (Nepionic)</DefaultResolution>
+    <PlaceholderReference Include="nepionic-motion-supplement">
+      <DefaultResolution>[Nepionic Motion Supplement], * (Nepionic)</DefaultResolution>
       <Namespace>nepionic</Namespace>
     </PlaceholderReference>
     <PlaceholderReference Include="Tc2_MC2">
@@ -53,7 +53,7 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="mc_move_velocity_continuously_test.tmc">
+    <None Include="motion_supplement_test.tmc">
       <SubType>Content</SubType>
     </None>
   </ItemGroup>
@@ -110,7 +110,7 @@
           <d n="SubKeys" t="Hashtable" />
           <d n="Values" t="Hashtable" ckt="String" cvt="Boolean">
             <v>WriteLineIDs</v>
-            <v>False</v>
+            <v>True</v>
           </d>
         </o>
         <v>{8F99A816-E488-41E4-9FA3-846536012284}</v>

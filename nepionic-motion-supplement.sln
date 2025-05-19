@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # TcXaeShell Solution File, Format Version 11.00
 VisualStudioVersion = 17.7.34302.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{B1E792BE-AA5F-4E3C-8C82-674BF9C0715B}") = "mc-move-velocity-continuously-test", "src\test\mc-move-velocity-continuously-test.tsproj", "{D7331491-379C-4C39-B56B-30647D5DD685}"
+Project("{B1E792BE-AA5F-4E3C-8C82-674BF9C0715B}") = "motion-supplement-test", "src\test\motion-supplement-test.tsproj", "{D7331491-379C-4C39-B56B-30647D5DD685}"
 EndProject
-Project("{DFBE7525-6864-4E62-8B2E-D530D69D9D96}") = "mc-move-velocity-continuously", "src\lib\mc-move-velocity-continuously.tspproj", "{21F5473B-5DC3-493C-8C4E-7BEF4C9FB2BC}"
+Project("{DFBE7525-6864-4E62-8B2E-D530D69D9D96}") = "motion-supplement", "src\lib\motion-supplement.tspproj", "{21F5473B-5DC3-493C-8C4E-7BEF4C9FB2BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
